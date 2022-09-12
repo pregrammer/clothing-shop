@@ -1,0 +1,83 @@
+$nav-bgc-color: #d2601a;
+
+.nav_global {
+  background-color: $nav-bgc-color;
+  height: 70px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  > :first-child {
+    margin-left: 20px;
+    display: flex;
+    font-family: vazir;
+
+    > :first-child,
+    > :nth-child(2) {
+      a {
+        display: block;
+        padding: 19px 20px;
+        color: #000;
+
+        svg {
+          width: 17px;
+          position: relative;
+          top: 5px;
+        }
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  > :nth-child(2) {
+    width: 20px;
+    margin-right: 20px;
+    display: none;
+  }
+
+  > ul {
+    list-style: none;
+    display: flex;
+    padding-right: 30px;
+
+    li {
+      a {
+        display: block;
+        padding: 19px 20px;
+        color: #000;
+        font-family: vazir;
+        border-bottom: 4px solid $nav-bgc-color; // for not sensing the move of a, when it's hovered.
+
+        &:hover {
+          border-bottom: 4px solid #000;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .nav_global {
+    > :first-child {
+      margin-left: 0;
+      > :first-child,
+      > :nth-child(2) {
+        a {
+          padding: 19px 14px;
+        }
+      }
+    }
+    > ul {
+      display: none;
+    }
+    > :nth-child(2) {
+      display: block;
+    }
+  }
+}
