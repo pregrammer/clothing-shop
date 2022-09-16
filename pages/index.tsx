@@ -248,7 +248,7 @@ const Home: NextPage = () => {
           </Link>
         </div>
         <div className={styles.see_all}>
-          <Link href={`products`}>
+          <Link href="/products">
             <a>مشاهده ی همه</a>
           </Link>
         </div>

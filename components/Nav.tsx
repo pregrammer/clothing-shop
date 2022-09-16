@@ -10,7 +10,7 @@ const Nav = () => {
     <nav className={styles.nav_global}>
       <div>
         <div>
-          <Link href="cart">
+          <Link href="/cart">
             <a>
               سبد خرید <FontAwesomeIcon icon={faShoppingCart} />
             </a>
@@ -18,13 +18,13 @@ const Nav = () => {
         </div>
         <div>
           <div>
-            <Link href="login">
+            <Link href="/login">
               <a>
                 ورود <FontAwesomeIcon icon={faSignIn} />
               </a>
             </Link>
           </div>
-          {/* <Link href="profile">
+          {/* <Link href="/profile">
             <a>پروفایل</a>
           </Link> */}
         </div>
@@ -34,17 +34,17 @@ const Nav = () => {
       </div>
       <ul>
         <li>
-          <Link href="about-us">
+          <Link href="/about-us">
             <a>درباره ی ما</a>
           </Link>
         </li>
         <li>
-          <Link href="contact-us">
+          <Link href="/contact-us">
             <a>تماس با ما</a>
           </Link>
         </li>
         <li>
-          <Link href="products">
+          <Link href="/products">
             <a>محصولات</a>
           </Link>
         </li>

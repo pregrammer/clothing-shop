@@ -12,18 +12,18 @@ const MobileMenu = () => {
         </div>
         <ul>
           <li>
-            <Link href="products">
+            <Link href="/products">
               <a>محصولات</a>
             </Link>
           </li>
 
           <li>
-            <Link href="contact-us">
+            <Link href="/contact-us">
               <a>تماس با ما</a>
             </Link>
           </li>
           <li>
-            <Link href="about-us">
+            <Link href="/about-us">
               <a>درباره ی ما</a>
             </Link>
           </li>

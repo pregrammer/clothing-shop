@@ -5,6 +5,7 @@ $nav-bgc-color: #d2601a;
   height: 70px;
   position: sticky;
   top: 0;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,6 +71,7 @@ $nav-bgc-color: #d2601a;
       > :nth-child(2) {
         a {
           padding: 19px 14px;
+          font-size: small;
         }
       }
     }

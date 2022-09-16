@@ -1,6 +1,7 @@
 import "../styles/global.scss";
 import type { AppProps } from "next/app";
 import Layout from "../components/Layout";
+import "react-image-gallery/styles/scss/image-gallery.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

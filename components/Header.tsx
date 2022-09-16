@@ -7,7 +7,7 @@ const Header = () => {
       <header className={styles.header_global}>
         <div className="header-imgage">
           <img
-            src="header-img.jpg"
+            src="/header-img.jpg"
             alt="clothes image"
             width="300"
             height="168"
