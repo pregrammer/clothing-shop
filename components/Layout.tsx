@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import Loader from "./Loader";
@@ -8,12 +9,16 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ children }) => {
+  const [isMobileMenuOpen, setisMobileMenuOpen] = useState(false);
+  const toggleMobileNav = () => {
+    setisMobileMenuOpen((prev) => !prev);
+  };
   return (
     <>
-      <Header />
+      <Header toggleMobileNav={toggleMobileNav} />
 
       {/* <Loader /> */}
-      {/* <MobileMenu /> */}
+      {isMobileMenuOpen && <MobileMenu toggleMobileNav={toggleMobileNav} />}
       {children}
 
       <Footer />

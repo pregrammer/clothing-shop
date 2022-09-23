@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../../styles/profile.module.scss";
 import ReactPaginate from "react-paginate";
+import ProfileAside from "../../components/ProfileAside";
 
 const Profile_orders: NextPage = () => {
   return (
@@ -31,18 +32,32 @@ const Profile_orders: NextPage = () => {
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td>تی شرت مشکی</td>
+                    <td>
+                      <Link href="/product/5">
+                        <a>تی شرت مشکی</a>
+                      </Link>
+                    </td>
                     <td>3</td>
                     <td>109000 تومان</td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td>تی شرت سفید</td>
+                    <td>
+                      <Link href="/product/5">
+                        <a>تی شرت سفید</a>
+                      </Link>
+                    </td>
                     <td>3</td>
                     <td>109000 تومان</td>
                   </tr>
                 </tbody>
                 <tfoot>
+                  <tr>
+                    <td>هزینه پست:</td>
+                    <td>34000 تومان</td>
+                    <td>درصد تخفیف:</td>
+                    <td>15%</td>
+                  </tr>
                   <tr>
                     <td>تاریخ خرید:</td>
                     <td>1401/10/26</td>
@@ -63,18 +78,32 @@ const Profile_orders: NextPage = () => {
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td>تی شرت مشکی</td>
+                    <td>
+                      <Link href="/product/5">
+                        <a>تی شرت مشکی</a>
+                      </Link>
+                    </td>
                     <td>3</td>
                     <td>109000 تومان</td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td>تی شرت سفید</td>
+                    <td>
+                      <Link href="/product/5">
+                        <a>تی شرت سفید</a>
+                      </Link>
+                    </td>
                     <td>3</td>
                     <td>109000 تومان</td>
                   </tr>
                 </tbody>
                 <tfoot>
+                  <tr>
+                    <td>هزینه پست:</td>
+                    <td>34000 تومان</td>
+                    <td>درصد تخفیف:</td>
+                    <td>15%</td>
+                  </tr>
                   <tr>
                     <td>تاریخ خرید:</td>
                     <td>1401/10/26</td>
@@ -95,18 +124,32 @@ const Profile_orders: NextPage = () => {
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td>تی شرت مشکی</td>
+                    <td>
+                      <Link href="/product/5">
+                        <a>تی شرت مشکی</a>
+                      </Link>
+                    </td>
                     <td>3</td>
                     <td>109000 تومان</td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td>تی شرت سفید</td>
+                    <td>
+                      <Link href="/product/5">
+                        <a>تی شرت سفید</a>
+                      </Link>
+                    </td>
                     <td>3</td>
                     <td>109000 تومان</td>
                   </tr>
                 </tbody>
                 <tfoot>
+                  <tr>
+                    <td>هزینه پست:</td>
+                    <td>34000 تومان</td>
+                    <td>درصد تخفیف:</td>
+                    <td>15%</td>
+                  </tr>
                   <tr>
                     <td>تاریخ خرید:</td>
                     <td>1401/10/26</td>
@@ -127,18 +170,32 @@ const Profile_orders: NextPage = () => {
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td>تی شرت مشکی</td>
+                    <td>
+                      <Link href="/product/5">
+                        <a>تی شرت مشکی</a>
+                      </Link>
+                    </td>
                     <td>3</td>
                     <td>109000 تومان</td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td>تی شرت سفید</td>
+                    <td>
+                      <Link href="/product/5">
+                        <a>تی شرت سفید</a>
+                      </Link>
+                    </td>
                     <td>3</td>
                     <td>109000 تومان</td>
                   </tr>
                 </tbody>
                 <tfoot>
+                  <tr>
+                    <td>هزینه پست:</td>
+                    <td>34000 تومان</td>
+                    <td>درصد تخفیف:</td>
+                    <td>15%</td>
+                  </tr>
                   <tr>
                     <td>تاریخ خرید:</td>
                     <td>1401/10/26</td>
@@ -159,18 +216,32 @@ const Profile_orders: NextPage = () => {
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td>تی شرت مشکی</td>
+                    <td>
+                      <Link href="/product/5">
+                        <a>تی شرت مشکی</a>
+                      </Link>
+                    </td>
                     <td>3</td>
                     <td>109000 تومان</td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td>تی شرت سفید</td>
+                    <td>
+                      <Link href="/product/5">
+                        <a>تی شرت سفید</a>
+                      </Link>
+                    </td>
                     <td>3</td>
                     <td>109000 تومان</td>
                   </tr>
                 </tbody>
                 <tfoot>
+                  <tr>
+                    <td>هزینه پست:</td>
+                    <td>34000 تومان</td>
+                    <td>درصد تخفیف:</td>
+                    <td>15%</td>
+                  </tr>
                   <tr>
                     <td>تاریخ خرید:</td>
                     <td>1401/10/26</td>
@@ -192,17 +263,7 @@ const Profile_orders: NextPage = () => {
               </div>
             </div>
           </div>
-          <aside>
-            <div>
-              <Link href="/profile/edit">
-                <a>ویرایش مشخصات</a>
-              </Link>
-              <Link href="/profile/orders">
-                <a>سفارشات من</a>
-              </Link>
-              <button>خروج</button>
-            </div>
-          </aside>
+          <ProfileAside />
         </div>
       </main>
     </>

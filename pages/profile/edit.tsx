@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import styles from "../../styles/profile.module.scss";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -10,6 +9,7 @@ import { prefixer } from "stylis";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { Stack } from "@mui/material";
+import ProfileAside from "../../components/ProfileAside";
 
 const Profile_edit: NextPage = () => {
   // for make mui component rtl and change font.
@@ -103,17 +103,7 @@ const Profile_edit: NextPage = () => {
               </CacheProvider>
             </form>
           </div>
-          <aside>
-            <div>
-              <Link href="/profile/edit">
-                <a>ویرایش مشخصات</a>
-              </Link>
-              <Link href="/profile/orders">
-                <a>سفارشات من</a>
-              </Link>
-              <button>خروج</button>
-            </div>
-          </aside>
+          <ProfileAside />
         </div>
       </main>
     </>

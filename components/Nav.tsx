@@ -5,7 +5,11 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faSignIn } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-const Nav = () => {
+interface Props {
+  toggleMobileNav: () => void;
+}
+
+const Nav = ({ toggleMobileNav }: Props) => {
   return (
     <nav className={styles.nav_global}>
       <div>
@@ -29,7 +33,7 @@ const Nav = () => {
           </Link> */}
         </div>
       </div>
-      <div>
+      <div onClick={toggleMobileNav}>
         <FontAwesomeIcon icon={faBars} />
       </div>
       <ul>

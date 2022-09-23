@@ -3,11 +3,15 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const MobileMenu = () => {
+interface Props {
+  toggleMobileNav: () => void;
+}
+
+const MobileMenu = ({ toggleMobileNav }: Props) => {
   return (
     <section className="mobile-menu">
       <div className="content">
-        <div className="times">
+        <div className="times" onClick={toggleMobileNav}>
           <FontAwesomeIcon icon={faTimes} />
         </div>
         <ul>

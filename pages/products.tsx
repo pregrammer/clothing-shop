@@ -5,8 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import ReactPaginate from "react-paginate";
+import { useState } from "react";
 
 const Products: NextPage = () => {
+  const [isAsideOpen, setIsAsideOpen] = useState(true);
+  const toggleMobileAside = () => {
+    setIsAsideOpen((prev) => !prev);
+  };
   const id: number = 5;
   return (
     <>
@@ -259,43 +264,50 @@ const Products: NextPage = () => {
           </div>
         </main>
         <aside>
-          <p className={styles.mobile_category}>
+          <p className={styles.mobile_category} onClick={toggleMobileAside}>
             دسته بندی
             <FontAwesomeIcon icon={faAngleDown} />
           </p>
-          <fieldset>
-            <legend>دسته بندی</legend>
-            <div className={styles.form_control}>
-              <input type="checkbox" value="لباس" name="clothes" id="clothes" />
-              <label htmlFor="clothes">لباس</label>
-            </div>
-            <div className={styles.form_control}>
-              <input type="checkbox" value="شلوار" name="pants" id="pants" />
-              <label htmlFor="pants">شلوار</label>
-            </div>
-            <div className={styles.form_control}>
-              <input type="checkbox" value="کفش" name="shoes" id="shoes" />
-              <label htmlFor="shoes">کفش</label>
-            </div>
-            <div className={styles.form_control}>
-              <input
-                type="checkbox"
-                value="اکسسوری مردانه"
-                name="men_accessory"
-                id="men_accessory"
-              />
-              <label htmlFor="men_accessory">اکسسوری مردانه</label>
-            </div>
-            <div className={styles.form_control}>
-              <input
-                type="checkbox"
-                value="اکسسوری زنانه"
-                name="femail_accessory"
-                id="femail_accessory"
-              />
-              <label htmlFor="femail_accessory">اکسسوری زنانه</label>
-            </div>
-          </fieldset>
+          {isAsideOpen && (
+            <fieldset>
+              <legend>دسته بندی</legend>
+              <div className={styles.form_control}>
+                <input
+                  type="checkbox"
+                  value="لباس"
+                  name="clothes"
+                  id="clothes"
+                />
+                <label htmlFor="clothes">لباس</label>
+              </div>
+              <div className={styles.form_control}>
+                <input type="checkbox" value="شلوار" name="pants" id="pants" />
+                <label htmlFor="pants">شلوار</label>
+              </div>
+              <div className={styles.form_control}>
+                <input type="checkbox" value="کفش" name="shoes" id="shoes" />
+                <label htmlFor="shoes">کفش</label>
+              </div>
+              <div className={styles.form_control}>
+                <input
+                  type="checkbox"
+                  value="اکسسوری مردانه"
+                  name="men_accessory"
+                  id="men_accessory"
+                />
+                <label htmlFor="men_accessory">اکسسوری مردانه</label>
+              </div>
+              <div className={styles.form_control}>
+                <input
+                  type="checkbox"
+                  value="اکسسوری زنانه"
+                  name="femail_accessory"
+                  id="femail_accessory"
+                />
+                <label htmlFor="femail_accessory">اکسسوری زنانه</label>
+              </div>
+            </fieldset>
+          )}
         </aside>
       </div>
     </>

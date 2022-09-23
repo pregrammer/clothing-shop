@@ -148,7 +148,7 @@ $active-link-bgc-color: #d2601a;
     padding: 5px 0;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
 
-    li {
+    li a{
       padding: 3px 13px;
       cursor: pointer;
       font-family: vazir;
@@ -222,7 +222,7 @@ $active-link-bgc-color: #d2601a;
 
   .pagi_container {
     ul {
-      li {
+      li a{
         padding: 2px 6px;
         font-size: small;
       }

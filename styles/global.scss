@@ -15,6 +15,10 @@ body {
   margin: 0;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 a {
   text-decoration: none;
 }
@@ -36,7 +40,7 @@ a {
 
 .loader-global {
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 100; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -47,18 +51,23 @@ a {
 
   .content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    margin: 20% auto; /* 15% from the top and centered */
     border: 1px solid #888;
-    width: 7%; /* Could be more or less, depending on screen size */
+    padding: 5px;
+    width: 4%; /* Could be more or less, depending on screen size */
     border-radius: 50%;
     box-shadow: 0 0 10px 5px gray;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
   }
 }
 
 section.mobile-menu {
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 20; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -80,6 +89,7 @@ section.mobile-menu {
       direction: rtl;
       position: absolute;
       right: 20px;
+      cursor: pointer;
     }
 
     ul {
@@ -96,5 +106,18 @@ section.mobile-menu {
         }
       }
     }
+  }
+}
+
+.swal2-title,
+.swal2-confirm,
+.swal2-cancel,
+.swal2-html-container{
+  font-family: vazir;
+}
+
+@media screen and (max-width: 860px) {
+  html {
+    overflow-x: hidden; // for management aside
   }
 }

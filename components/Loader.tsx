@@ -4,7 +4,7 @@ const Loader = () => {
   return (
     <section className='loader-global'>
         <div className="content">
-            <img src="loader.gif" alt="loader" />
+            <img src="/loader.gif" alt="loader" />
         </div>
     </section>
   )

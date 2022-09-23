@@ -1,7 +1,11 @@
 import styles from "../styles/header.module.scss";
 import Nav from "./Nav";
 
-const Header = () => {
+interface Props {
+  toggleMobileNav: () => void;
+}
+
+const Header = ({ toggleMobileNav }: Props) => {
   return (
     <>
       <header className={styles.header_global}>
@@ -17,7 +21,7 @@ const Header = () => {
         <p>Best quality, cheapest price</p>
         <p>فروشگاه پوشاک ارائه دهنده ی انواع لباس برای تمامی سنین</p>
       </header>
-      <Nav />
+      <Nav toggleMobileNav={toggleMobileNav} />
     </>
   );
 };

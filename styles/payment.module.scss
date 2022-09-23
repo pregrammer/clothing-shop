@@ -1,0 +1,206 @@
+.content {
+  width: 60%;
+  margin: auto;
+  direction: rtl;
+  padding-bottom: 50px;
+}
+
+.header {
+  padding-top: 20px;
+
+  h1 {
+    font-family: vazir;
+    margin-right: 20px;
+    font-size: 25px;
+  }
+}
+
+.fieldsets {
+  font-family: vazir;
+  padding: 10px 40px 30px 40px;
+
+  fieldset {
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    border: 1px solid rgb(163, 163, 163);
+
+    &:nth-child(3) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      form {
+        input {
+          font-family: vazir;
+          width: 200px;
+          padding: 7px 15px;
+          border-radius: 5px;
+          border: 1px solid gray;
+          margin-left: 5px;
+        }
+        button {
+          font-family: vazir;
+          padding: 6px 12px;
+          border-radius: 5px;
+          border: 1.5px solid blue;
+          background-color: rgb(32, 32, 255);
+          color: white;
+          transition: all 0.2s;
+          cursor: pointer;
+
+          &:hover {
+            background-color: white;
+            color: blue;
+          }
+        }
+      }
+    }
+  }
+}
+
+.user_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  > div:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  > div:last-child a {
+    color: gray;
+    border-bottom: 1px solid gray;
+    transition: all 0.2s;
+
+    &:hover {
+      color: #000;
+      border-bottom: 1px solid #000;
+    }
+  }
+
+  b {
+    margin-left: 10px;
+  }
+}
+
+.post_radios {
+  display: flex;
+  justify-content: center;
+}
+.radio_control {
+  display: flex;
+  align-items: center;
+  label {
+    font-size: 13.5px;
+    cursor: pointer;
+    user-select: none;
+  }
+  input {
+    cursor: pointer;
+  }
+  &:first-child {
+    margin-left: 15px;
+  }
+}
+
+.purchase_info {
+  table {
+    font-family: vazir;
+    font-size: 14px;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  table td,
+  table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+
+    &:first-child {
+      width: 10%;
+    }
+    &:nth-child(2) {
+      max-width: 35vw;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &:nth-child(3) {
+      width: 20%;
+    }
+    &:last-child {
+      width: 20%;
+    }
+  }
+
+  table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  table tr:hover {
+    background-color: #ddd;
+  }
+
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: right;
+    background-color: #838383;
+    color: white;
+  }
+}
+
+.pay_button {
+  padding: 0 40px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -20px;
+
+  button {
+    font-family: vazir;
+    padding: 12px 70px;
+    border-radius: 5px;
+    border: 1.5px solid green;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: white;
+      color: green;
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .content {
+    width: 90%;
+  }
+  .fieldsets {
+    padding: 10px 20px 30px 20px;
+  }
+  .user_info{
+    padding: 7px;
+    font-size: 14px;
+  }
+  .post_radios {
+    flex-direction: column;
+  }
+  .purchase_info {
+    table {
+      overflow-x: scroll;
+      display: block;
+    }
+  }
+  .pay_button {
+    padding: 0 40px;
+    justify-content: center;
+
+    button {
+      font-family: vazir;
+      padding: 12px 70px;
+    }
+  }
+}

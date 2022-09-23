@@ -1,0 +1,84 @@
+$nav-bgc-color: #d2601a;
+
+.auth_page {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    background-image: url("/tshirt.png");
+    background-size: 100% 100%;
+    width: 500px;
+    height: 450px;
+    direction: rtl;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: vazir;
+    padding-top: 60px;
+  }
+}
+
+.form_control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  span {
+    margin-bottom: 5px;
+  }
+
+  input {
+    padding: 5px;
+    width: 200px;
+    border: 1px solid gray;
+    border-radius: 10px;
+  }
+}
+
+.submit_button {
+  margin-bottom: 15px;
+  button {
+    width: 200px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    background-color: $nav-bgc-color;
+    padding: 8px 0;
+    cursor: pointer;
+    font-family: vazir;
+    margin-top: 10px;
+    transition: all 0.2s;
+
+    &:hover {
+      box-shadow: 0 0 15px 4px rgb(171, 171, 171);
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .auth_page {
+    form {
+      width: 90vw;
+      height: 450px;
+    }
+  }
+  .form_control {
+    input {
+      padding: 5px;
+      width: 160px;
+      border: 1px solid gray;
+      border-radius: 10px;
+    }
+    span {
+      font-size: 13px;
+    }
+  }
+  .submit_button {
+    button {
+      width: 160px;
+    }
+  }
+}
