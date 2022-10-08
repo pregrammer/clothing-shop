@@ -112,8 +112,13 @@ section.mobile-menu {
 .swal2-title,
 .swal2-confirm,
 .swal2-cancel,
-.swal2-html-container{
+.swal2-html-container {
   font-family: vazir;
+}
+
+.Toastify__toast {
+  font-family: vazir !important;
+  font-size: 13.5px;
 }
 
 @media screen and (max-width: 860px) {

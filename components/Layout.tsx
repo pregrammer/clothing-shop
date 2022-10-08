@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import { useLoading } from "../hooks/contexts/LoadingProvider";
+import Loader from "./Loader";
 import Footer from "./Footer";
 import Header from "./Header";
-import Loader from "./Loader";
 import MobileMenu from "./MobileMenu";
 
 interface Props {
@@ -9,6 +11,7 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ children }) => {
+  const { loading } = useLoading();
   const [isMobileMenuOpen, setisMobileMenuOpen] = useState(false);
   const toggleMobileNav = () => {
     setisMobileMenuOpen((prev) => !prev);
@@ -17,7 +20,18 @@ const Layout: React.FC<Props> = ({ children }) => {
     <>
       <Header toggleMobileNav={toggleMobileNav} />
 
-      {/* <Loader /> */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={true}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      {loading && <Loader />}
       {isMobileMenuOpen && <MobileMenu toggleMobileNav={toggleMobileNav} />}
       {children}
 

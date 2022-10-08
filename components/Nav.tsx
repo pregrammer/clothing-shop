@@ -4,12 +4,38 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faSignIn } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { ReactElement, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 interface Props {
   toggleMobileNav: () => void;
 }
 
 const Nav = ({ toggleMobileNav }: Props) => {
+  const [leftSideContent, setLeftSideContent] = useState<ReactElement>();
+  const router = useRouter();
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("jwt");
+    if (isLoggedIn) {
+      setLeftSideContent(
+        <div>
+          <Link href="/profile/edit">
+            <a>پروفایل</a>
+          </Link>
+        </div>
+      );
+    } else {
+      setLeftSideContent(
+        <div>
+          <Link href="/login">
+            <a>
+              ورود <FontAwesomeIcon icon={faSignIn} />
+            </a>
+          </Link>
+        </div>
+      );
+    }
+  }, [router.pathname]);
   return (
     <nav className={styles.nav_global}>
       <div>
@@ -20,18 +46,7 @@ const Nav = ({ toggleMobileNav }: Props) => {
             </a>
           </Link>
         </div>
-        <div>
-          <div>
-            <Link href="/login">
-              <a>
-                ورود <FontAwesomeIcon icon={faSignIn} />
-              </a>
-            </Link>
-          </div>
-          {/* <Link href="/profile">
-            <a>پروفایل</a>
-          </Link> */}
-        </div>
+        <div>{leftSideContent}</div>
       </div>
       <div onClick={toggleMobileNav}>
         <FontAwesomeIcon icon={faBars} />
