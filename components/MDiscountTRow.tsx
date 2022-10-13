@@ -2,8 +2,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import styles from "../styles/management.module.scss";
 import Swal from "sweetalert2";
+import useAxiosAuthFunction from "../helpers/useAxiosAuthFunction";
+import { useEffect } from "react";
 
-const MDiscountTRow = () => {
+interface DiscountCode {
+  id: number;
+  title: string;
+  percent: string;
+}
+
+interface Prop {
+  discountCode: DiscountCode;
+  rowNumber: number;
+  handleRefreshDiscountTable: () => void;
+}
+
+const MDiscountTRow = ({
+  discountCode,
+  rowNumber,
+  handleRefreshDiscountTable,
+}: Prop) => {
+  
+  const [data, axiosFetch]: any = useAxiosAuthFunction();
+
   const handleDeleteDiscount = () => {
     Swal.fire({
       title: "آیا از حذف این کد تخفیف مطمعن هستید؟",
@@ -15,35 +36,43 @@ const MDiscountTRow = () => {
       cancelButtonText: "خیر",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "!حذف شد",
-          icon: "success",
-          html: "کد تخفیف مورد نظر با موفقیت حذف شد",
-          confirmButtonColor: "#3085d6",
-          confirmButtonText: "باشه",
+        axiosFetch({
+          method: "DELETE",
+          url: `/discount-codes`,
+          requestConfig: {
+            data: { id: discountCode.id },
+          },
         });
       }
     });
   };
+
+  useEffect(() => {
+    if (Object.keys(data).length !== 0) {
+      handleRefreshDiscountTable();
+      Swal.fire({
+        title: "!ویرایش شد",
+        icon: "success",
+        html: data.message,
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "باشه",
+      });
+    }
+  }, [data]);
+
   return (
-    <>
-      <tr>
-        <td>1</td>
-        <td>XDF-5YpZ</td>
-        <td>98000 تومان</td>
-        <td className={styles.change_user_td}>
-          <FontAwesomeIcon icon={faTrash} onClick={handleDeleteDiscount} />
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Aw54fft5</td>
-        <td>5 درصد</td>
-        <td className={styles.change_user_td}>
-          <FontAwesomeIcon icon={faTrash} onClick={handleDeleteDiscount} />
-        </td>
-      </tr>
-    </>
+    <tr>
+      <td>{rowNumber}</td>
+      <td>{discountCode.title}</td>
+      <td>
+        {/%/.test(discountCode.percent)
+          ? discountCode.percent
+          : `${discountCode.percent} تومان`}
+      </td>
+      <td className={styles.change_user_td}>
+        <FontAwesomeIcon icon={faTrash} onClick={handleDeleteDiscount} />
+      </td>
+    </tr>
   );
 };
 

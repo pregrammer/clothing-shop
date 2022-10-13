@@ -4,8 +4,35 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import styles from "../styles/management.module.scss";
 import Swal from "sweetalert2";
+import useAxiosAuthFunction from "../helpers/useAxiosAuthFunction";
+import { useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-const MProductTRow = () => {
+interface Product {
+  id: number;
+  name: string;
+  price: string;
+  discount?: string;
+  kind: string;
+  features: { title: string; feature: string }[];
+  inventories: { size: string; inventory: number }[];
+}
+
+interface Prop {
+  handleProductModal: (editData?: Product) => void;
+  product: Product;
+  rowNumber: number;
+  handleRefreshPage: () => void;
+}
+
+const MProductTRow = ({
+  handleProductModal,
+  product,
+  rowNumber,
+  handleRefreshPage,
+}: Prop) => {
+  const [data, axiosFetch]: any = useAxiosAuthFunction();
+
   const handleDeleteProduct = () => {
     Swal.fire({
       title: "آیا از حذف این محصول مطمعن هستید؟",
@@ -17,25 +44,67 @@ const MProductTRow = () => {
       cancelButtonText: "خیر",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "!حذف شد",
-          icon: "success",
-          html: "محصول مورد نظر با موفقیت حذف شد",
-          confirmButtonColor: "#3085d6",
-          confirmButtonText: "باشه",
+        axiosFetch({
+          method: "DELETE",
+          url: `/products`,
+          requestConfig: {
+            data: { id: product.id, name: product.name },
+          },
         });
       }
     });
   };
+
+  const handleEditProduct = () => {
+    handleProductModal(product);
+  };
+
+  useEffect(() => {
+    if (Object.keys(data).length !== 0) {
+      handleRefreshPage();
+      Swal.fire({
+        title: "!ویرایش شد",
+        icon: "success",
+        html: data.message,
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "باشه",
+      });
+    }
+  }, [data]);
+
   return (
     <tr>
-      <td>1</td>
+      <td>{rowNumber}</td>
       <td>
-        <Link href="/product/5">
-          <a>تی شرت مشکی</a>
+        <Link href={`/product/${product.id}`}>
+          <a>{product.name}</a>
         </Link>
       </td>
       <td className={styles.inventory_td}>
+        <div>
+          <b>سایز</b>
+          <b>موجودی</b>
+        </div>
+        {product.inventories.map((inv) => (
+          <div key={uuidv4()}>
+            <span>{inv.size}</span>
+            <span>{inv.inventory}</span>
+          </div>
+        ))}
+      </td>
+      <td>{product.price} تومان</td>
+      <td className={styles.change_product_td}>
+        <FontAwesomeIcon icon={faEdit} onClick={handleEditProduct} />
+        <FontAwesomeIcon icon={faTrash} onClick={handleDeleteProduct} />
+      </td>
+    </tr>
+  );
+};
+
+export default MProductTRow;
+
+/*
+<td className={styles.inventory_td}>
         <div>
           <b>سایز</b>
           <b>موجودی</b>
@@ -49,13 +118,4 @@ const MProductTRow = () => {
           <span>12</span>
         </div>
       </td>
-      <td>109000 تومان</td>
-      <td className={styles.change_product_td}>
-        <FontAwesomeIcon icon={faEdit} />
-        <FontAwesomeIcon icon={faTrash} onClick={handleDeleteProduct} />
-      </td>
-    </tr>
-  );
-};
-
-export default MProductTRow;
+*/

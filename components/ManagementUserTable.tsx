@@ -1,6 +1,20 @@
 import MUserTRow from "./MUserTRow";
 
-const ManagementUserTable = () => {
+interface User {
+  id: number;
+  fullName: string;
+  state: number;
+  email: string;
+  phoneNumber: string;
+  created_at: string;
+}
+
+interface Prop {
+  users: User[];
+  handleRefreshPage: () => void;
+}
+
+const ManagementUserTable = ({ users, handleRefreshPage }: Prop) => {
   return (
     <table>
       <thead>
@@ -14,13 +28,22 @@ const ManagementUserTable = () => {
         </tr>
       </thead>
       <tbody>
-        <MUserTRow />
-        <MUserTRow />
-        <MUserTRow />
-        <MUserTRow />
-        <MUserTRow />
-        <MUserTRow />
-        <MUserTRow />
+        {users?.length ? (
+          users.map((user: User, idx: number) => (
+            <MUserTRow
+              key={user.id}
+              user={user}
+              rowNumber={idx + 1}
+              handleRefreshPage={handleRefreshPage}
+            />
+          ))
+        ) : (
+          <tr>
+            <td colSpan={6} className="has-no-row">
+              کاربری برای نمایش وجود ندارد
+            </td>
+          </tr>
+        )}
       </tbody>
     </table>
   );

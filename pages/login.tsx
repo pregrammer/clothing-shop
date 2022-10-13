@@ -29,7 +29,11 @@ const login: NextPage = () => {
   useEffect(() => {
     if (Object.keys(data).length !== 0) {
       localStorage.setItem("jwt", data.accessToken);
-      router.replace("/");
+      if (data.role === 1) {
+        router.replace("/");
+      } else if (data.role === 2) {
+        router.replace("/management/orders");
+      }
       toast.success("با موفقیت وارد شدید", {
         position: "top-right",
         autoClose: 5000,

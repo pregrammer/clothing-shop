@@ -1,13 +1,25 @@
 import styles from "../styles/management.module.scss";
 
-const ProductInventoryInput = () => {
+interface Prop {
+  id: string;
+  handleDeleteInventory: (id: string) => void;
+  inputValue?: { size: string; inventory: number };
+}
+
+const ProductInventoryInput = ({
+  id,
+  handleDeleteInventory,
+  inputValue,
+}: Prop) => {
   return (
     <div className={styles.feature_container}>
       <div>
         <span>سایز:</span>
         <input
-          type="number"
-          className="productSize"
+          type="text"
+          defaultValue={inputValue ? inputValue.size : ""}
+          required
+          className="product_size_input"
           placeholder="اندازه ی سایز را وارد کنید"
         />
       </div>
@@ -15,10 +27,19 @@ const ProductInventoryInput = () => {
         <span>موجودی:</span>
         <input
           type="number"
-          className="productInventory"
+          defaultValue={inputValue ? inputValue.inventory : ""}
+          required
+          className="product_inventory_input"
           placeholder="موجودی مربوط به سایز را وارد کنید"
         />
-        <span className={styles.badge}>-</span>
+        <span
+          className={styles.badge}
+          onClick={() => {
+            handleDeleteInventory(id);
+          }}
+        >
+          -
+        </span>
       </div>
     </div>
   );

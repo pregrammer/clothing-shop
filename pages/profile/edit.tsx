@@ -127,6 +127,7 @@ const Profile_edit: NextPage = () => {
                       <TextField
                         label="نام"
                         variant="outlined"
+                        required
                         value={inputs.firstName}
                         onChange={(e) =>
                           setInputs((prev) => ({
@@ -138,6 +139,7 @@ const Profile_edit: NextPage = () => {
                       <TextField
                         label="نام خانوادگی"
                         variant="outlined"
+                        required
                         value={inputs.lastName}
                         onChange={(e) =>
                           setInputs((prev) => ({
@@ -149,6 +151,7 @@ const Profile_edit: NextPage = () => {
                       <TextField
                         label="ایمیل"
                         variant="outlined"
+                        required
                         type="email"
                         value={inputs.email}
                         onChange={(e) =>
@@ -161,6 +164,7 @@ const Profile_edit: NextPage = () => {
                       <TextField
                         label="آدرس دقیق"
                         variant="outlined"
+                        required
                         value={inputs.address}
                         onChange={(e) =>
                           setInputs((prev) => ({
@@ -180,6 +184,7 @@ const Profile_edit: NextPage = () => {
                       <TextField
                         label="کد پستی"
                         variant="outlined"
+                        required
                         type="number"
                         value={inputs.postalCode}
                         onChange={(e) =>
@@ -192,6 +197,7 @@ const Profile_edit: NextPage = () => {
                       <TextField
                         label="شماره همراه"
                         variant="outlined"
+                        required
                         type="number"
                         value={inputs.phoneNumber}
                         onChange={(e) =>

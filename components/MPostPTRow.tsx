@@ -2,8 +2,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import styles from "../styles/management.module.scss";
 import Swal from "sweetalert2";
+import useAxiosAuthFunction from "../helpers/useAxiosAuthFunction";
+import { useEffect } from "react";
 
-const MPostPTRow = () => {
+interface PostPrice {
+  id: number;
+  title: string;
+  price: string;
+}
+
+interface Prop {
+  postPrice: PostPrice;
+  rowNumber: number;
+  handleRefreshPostTable: () => void;
+}
+
+const MPostPTRow = ({ postPrice, rowNumber, handleRefreshPostTable }: Prop) => {
+  const [data, axiosFetch]: any = useAxiosAuthFunction();
+
   const handleDeletePostPrice = () => {
     Swal.fire({
       title: "آیا از حذف این قیمت پست مطمعن هستید؟",
@@ -15,21 +31,35 @@ const MPostPTRow = () => {
       cancelButtonText: "خیر",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "!حذف شد",
-          icon: "success",
-          html: "قیمت پست مورد نظر با موفقیت حذف شد",
-          confirmButtonColor: "#3085d6",
-          confirmButtonText: "باشه",
+        axiosFetch({
+          method: "DELETE",
+          url: `/post-prices`,
+          requestConfig: {
+            data: { id: postPrice.id },
+          },
         });
       }
     });
   };
+
+  useEffect(() => {
+    if (Object.keys(data).length !== 0) {
+      handleRefreshPostTable();
+      Swal.fire({
+        title: "!ویرایش شد",
+        icon: "success",
+        html: data.message,
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "باشه",
+      });
+    }
+  }, [data]);
+
   return (
     <tr>
-      <td>1</td>
-      <td>پیشتاز</td>
-      <td>98000 تومان</td>
+      <td>{rowNumber}</td>
+      <td>{postPrice.title}</td>
+      <td>{`${postPrice.price} تومان`}</td>
       <td className={styles.change_user_td}>
         <FontAwesomeIcon icon={faTrash} onClick={handleDeletePostPrice} />
       </td>

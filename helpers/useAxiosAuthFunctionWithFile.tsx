@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import { useLoading } from "../hooks/contexts/LoadingProvider";
 import { useRouter } from "next/router";
 
-import axios, { axiosPrivate } from "../api/axios";
-// Logged in users make their request with this axios instance.
-const useAxiosAuthFunction = () => {
+import axios, { axiosPrivateFile } from "../api/axios";
+// Logged in users make their request with this axios instance whenever want to send files too.
+const useAxiosAuthFunctionWithFile = () => {
   const [data, setData] = useState([]);
   const { setLoading } = useLoading();
   const router = useRouter();
@@ -17,7 +17,7 @@ const useAxiosAuthFunction = () => {
       method,
       url,
       requestConfig = {},
-      axiosInstance = axiosPrivate,
+      axiosInstance = axiosPrivateFile,
     } = configObj;
 
     try {
@@ -152,7 +152,7 @@ const useAxiosAuthFunction = () => {
   return [data, axiosFetch];
 };
 
-export default useAxiosAuthFunction;
+export default useAxiosAuthFunctionWithFile;
 
 /*
 // get

@@ -4,8 +4,8 @@ import { useLoading } from "../hooks/contexts/LoadingProvider";
 import { useRouter } from "next/router";
 
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
-// Logged in users make their request with this axios instance.
-const useAxiosAuthFunction = () => {
+// Logged in users make their request with this axios instance with axios interceptors.
+const useAxiosInterceptorFunction = () => {
   const [data, setData] = useState([]);
   const { setLoading } = useLoading();
   const axiosPrivate = useAxiosPrivate();
@@ -70,7 +70,7 @@ const useAxiosAuthFunction = () => {
   return [data, axiosFetch];
 };
 
-export default useAxiosAuthFunction;
+export default useAxiosInterceptorFunction;
 
 /*
 // get

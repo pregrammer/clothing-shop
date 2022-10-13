@@ -6,6 +6,7 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import ReactPaginate from "react-paginate";
 import { useState } from "react";
+import ProductsFilter from "../components/ProductsFilter";
 
 const Products: NextPage = () => {
   const [isAsideOpen, setIsAsideOpen] = useState(true);
@@ -269,44 +270,7 @@ const Products: NextPage = () => {
             <FontAwesomeIcon icon={faAngleDown} />
           </p>
           {isAsideOpen && (
-            <fieldset>
-              <legend>دسته بندی</legend>
-              <div className={styles.form_control}>
-                <input
-                  type="checkbox"
-                  value="لباس"
-                  name="clothes"
-                  id="clothes"
-                />
-                <label htmlFor="clothes">لباس</label>
-              </div>
-              <div className={styles.form_control}>
-                <input type="checkbox" value="شلوار" name="pants" id="pants" />
-                <label htmlFor="pants">شلوار</label>
-              </div>
-              <div className={styles.form_control}>
-                <input type="checkbox" value="کفش" name="shoes" id="shoes" />
-                <label htmlFor="shoes">کفش</label>
-              </div>
-              <div className={styles.form_control}>
-                <input
-                  type="checkbox"
-                  value="اکسسوری مردانه"
-                  name="men_accessory"
-                  id="men_accessory"
-                />
-                <label htmlFor="men_accessory">اکسسوری مردانه</label>
-              </div>
-              <div className={styles.form_control}>
-                <input
-                  type="checkbox"
-                  value="اکسسوری زنانه"
-                  name="femail_accessory"
-                  id="femail_accessory"
-                />
-                <label htmlFor="femail_accessory">اکسسوری زنانه</label>
-              </div>
-            </fieldset>
+            <ProductsFilter />
           )}
         </aside>
       </div>
