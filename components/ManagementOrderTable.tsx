@@ -55,7 +55,7 @@ const ManagementOrderTable = () => {
     });
   };
   return (
-    <table>
+    <table className={styles.order_table}>
       <thead>
         <tr>
           <th>#</th>
