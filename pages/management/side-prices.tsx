@@ -13,7 +13,7 @@ const Manage_side_prices: NextPage = () => {
   const [asideIsOpen, setasideIsOpen] = useState(true);
   const [discountCodeInputs, setDiscountCodeInputs] = useState({
     title: "",
-    percent: "",
+    discount: "",
   });
   const [postPriceInputs, setPostPriceInputs] = useState({
     title: "",
@@ -44,13 +44,13 @@ const Manage_side_prices: NextPage = () => {
       requestConfig: {
         data: {
           title: discountCodeInputs.title,
-          percent: discountCodeInputs.percent,
+          discount: discountCodeInputs.discount,
         },
       },
     });
     setDiscountCodeInputs({
       title: "",
-      percent: "",
+      discount: "",
     });
     handleRefreshDiscountTable();
   };
@@ -174,7 +174,7 @@ const Manage_side_prices: NextPage = () => {
                 <input
                   type="text"
                   required
-                  value={discountCodeInputs.percent}
+                  value={discountCodeInputs.discount}
                   onChange={(e) =>
                     setDiscountCodeInputs((prev) => ({
                       ...prev,
